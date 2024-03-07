@@ -7,4 +7,4 @@ import App from './App.vue'
 
 createApp(App).mount('#app')
 
-console.log(new Movie("titre", "description", "htppquelque chose.com"))
+// console.log(new Movie("titre", "description", "htppquelque chose.com"))
