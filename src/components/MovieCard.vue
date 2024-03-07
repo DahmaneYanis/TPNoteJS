@@ -10,5 +10,5 @@ let description = descriptionFormate(props.movie.description)
 </script>
 
 <template>
-    
+    <p>{{ movie.description }}</p>
 </template>
