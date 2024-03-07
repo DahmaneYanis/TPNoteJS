@@ -1,15 +1,29 @@
 export default class LinkService {
     static nbLinks = 0
+    static links = [
+        LinkService.newLink("Ajouter un film", "films/add"),
+        LinkService.newLink("Tout les films", "films")
+    ]
+
+    static newLink(label, link) {
+        LinkService.nbLinks += 1
+        return { id: LinkService.nbLinks, label: label, link: link }
+    }
 
     getLinks() {
-        return [
-            this.newLink("Ajouter un film", "film/add"),
-            this.newLink("Tout les fims", "films")
-        ]
+        return LinkService.links
     }
 
-    newLink(label, link) {
-        nbLinks += 1
-        return { id: nbLinks, label: label, link: link }
+    getLink(url) {
+        let res = null
+        LinkService.links.forEach(link => {
+            console.log(link.link)
+            if (link.link === url) {
+                res = link
+            }
+        });
+        return res
     }
+
+
 }
