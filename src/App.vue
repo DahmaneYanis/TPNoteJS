@@ -1,13 +1,14 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
 import MovieCard from './components/MovieCard.vue'
 import Movie from './model/Movie';
 let movie = new Movie("titre", "description", "htppquelque chose.com")
+let link = window.location.href.split("#")
+link = link[1]
 </script>
 
 <template>
   <main>
+    <H1>{{ link }}</H1>
     <MovieCard :movie="movie" />
   </main> 
 </template>
