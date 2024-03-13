@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.3",
+    "portal-vue": "^3.0.0-beta.0",
     "vue": "^3.4.15"
   },
   "devDependencies": {
