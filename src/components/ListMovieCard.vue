@@ -7,7 +7,6 @@ import descriptionFormate from '../tools/descriptionFormate'
 const props = defineProps({
     list_movies : Array
 })
-console.log(props.list_movies)
 </script>
 
 <template>
