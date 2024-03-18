@@ -1,15 +1,28 @@
 <script setup>
+import { ref } from 'vue'
+
+
 import MovieCard from './components/MovieCard.vue'
+import ListMovieCard from './components/ListMovieCard.vue'
+
 import Movie from './model/Movie';
-let movie = new Movie("titre", "description", "htppquelque chose.com")
+import Formulaire from './components/Formulaire.vue';
+let movies = ref([new Movie("titre", "description", "htppquelque chose.com"), new Movie("titre2", "description2", "htppquelque chose.com2")])
 let link = window.location.href.split("#")
 link = link[1]
+
+function update(movie) {
+  console.log("update !")
+  movies.value.push(movie)
+  console.log(movies)
+}
 </script>
 
 <template>
   <main>
     <H1>{{ link }}</H1>
-    <MovieCard :movie="movie" />
+    <Formulaire @new="(movie) => update(movie)"/>
+    <ListMovieCard :list_movies="movies" />
   </main> 
 </template>
 
