@@ -20,7 +20,7 @@ function update(movie) {
 
 <template>
   <main>
-    <H1>{{ link }}</H1>
+    <h1>{{ link }}</h1>
     <Formulaire @new="(movie) => update(movie)"/>
     <ListMovieCard :list_movies="movies" />
   </main> 

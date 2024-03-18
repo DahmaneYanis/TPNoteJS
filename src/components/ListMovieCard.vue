@@ -12,6 +12,6 @@ console.log(props.list_movies)
 
 <template>
     <div>
-        <MovieCard  v-for="movie in list_movies" :movie="movie" />
+        <MovieCard v-for="movie in list_movies" :movie="movie" />
     </div>
 </template>
