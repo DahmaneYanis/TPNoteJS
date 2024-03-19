@@ -1,5 +1,6 @@
 <script setup>
 import Movie from '../model/Movie'
+import { ref } from 'vue';
 
 //TODO
 function descriptionFormate(description) {
@@ -14,6 +15,8 @@ const props = defineProps({
     movie: Movie
 })
 
+const more = ref(false)
+
 </script>
 
 <template>
@@ -21,7 +24,8 @@ const props = defineProps({
         <img :src="movie.link">
         <li class="seen" v-if="movie.seen">Titre : {{ movie.title }}</li>
         <li v-else>Titre : {{ movie.title }}</li>
-        <li>Description : {{ descriptionFormate(movie.description) }}</li>
+        <li v-if="!more">Description : {{ descriptionFormate(movie.description) }} <a @click="() => more = true">Voir plus...</a></li>
+        <li v-else>Description : {{ movie.description }} <a @click="() => more = false">Voir moins.</a></li>
         <button @click="movie.seen = true">Seen</button>
         <button @click="movie.seen = false">Not seen</button>
 

@@ -5,6 +5,7 @@ import NavBar from './components/NavBar.vue'
 
 import DataManager from './model/DataManager'
 import Routeur from './model/Routeur'
+import ListMovieAPI from './components/ListMovieAPI.vue'
 
 const dataManager = new DataManager()
 const routeur = new Routeur()
@@ -23,8 +24,17 @@ function updateList(filter) {
 	<main>
 		<NavBar @go="(link) => routeur.goTo(link)" />
 		<h1>{{ routeur.getCurrentLink() }}</h1>
-		<Formulaire v-if="routeur.getCurrentLink() == 'films/add'" @new="(movie) => update(movie)"/>
-		<ListMovieCard v-else-if="routeur.getCurrentLink() == 'films'" @filter-updated="(filter) => updateList(filter)" :list_movies="dataManager.getMovies()" />
+		<Formulaire v-if="routeur.getCurrentLink() == 'films/add'" @new="(movie) => update(movie)" />
+		<div v-else-if="routeur.getCurrentLink() == 'films'">
+
+			<Suspense>
+				<ListMovieAPI />
+			</Suspense>
+
+			<ListMovieCard @filter-updated="(filter) => updateList(filter)" :list_movies="dataManager.getMovies()" />
+		</div>
+
+
 	</main>
 </template>
 
