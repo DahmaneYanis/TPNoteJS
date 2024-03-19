@@ -5,7 +5,7 @@ import MovieCard from './MovieCard.vue';
 import descriptionFormate from '../tools/descriptionFormate'
 
 const props = defineProps({
-    list_movies : Array
+    list_movies: Array
 })
 </script>
 

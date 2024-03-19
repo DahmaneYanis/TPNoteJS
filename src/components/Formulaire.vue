@@ -52,7 +52,6 @@ function isDescriptionValid(description) {
         descriptionTooShort.value = false;
         noDescription.value = false;
 
-
         return true;
     }
     descriptionValid.value = false;
