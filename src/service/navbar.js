@@ -1,4 +1,4 @@
-import LinkService from './src/service/LinkService.js'
+import LinkService from './LinkService.js'
 
 export default{
 
@@ -10,10 +10,16 @@ export default{
         };
     },
 
+    methods: {
+        affiche_libelle: function(link) {
+        	return link
+        }
+    },
+
     template : `
         <section>
         <ul>
-            <li v-for = "links in this.otherLinks">
+            <li @click="affiche_libelle(links.link)" v-for = "links in this.otherLinks">
                 {{ links.link }}
             </li>
             <li>{{ homeLink }}</li>
