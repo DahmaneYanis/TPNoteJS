@@ -22,19 +22,21 @@ function updateList(filter) {
 
 <template>
 	<main>
+		<h1>TP Noté - {{ routeur.getCurrentLink() }}</h1>
 		<NavBar @go="(link) => routeur.goTo(link)" />
-		<h1>{{ routeur.getCurrentLink() }}</h1>
-		<Formulaire v-if="routeur.getCurrentLink() == 'films/add'" @new="(movie) => update(movie)" />
+		<div v-if="routeur.getCurrentLink() == 'films/add'">
+			<h2>Ajouter un nouveau film</h2>
+			<Formulaire @new="(movie) => update(movie)" />
+		</div>
 		<div v-else-if="routeur.getCurrentLink() == 'films'">
-
+			<h2>Liste des films</h2>
+			<h3>Films provenant de l'API</h3>
 			<Suspense>
 				<ListMovieAPI />
 			</Suspense>
-
+			<h3>Films provenant du stub</h3>
 			<ListMovieCard @filter-updated="(filter) => updateList(filter)" :list_movies="dataManager.getMovies()" />
 		</div>
-
-
 	</main>
 </template>
 

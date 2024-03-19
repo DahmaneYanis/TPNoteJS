@@ -21,26 +21,41 @@ const more = ref(false)
 
 <template>
     <div class="movie-card">
-        <img :src="movie.link">
-        <li class="seen" v-if="movie.seen">Titre : {{ movie.title }}</li>
+        <div class="img-div">
+            <img :src="movie.link">
+        </div>
+        <li v-if="movie.seen">Titre : <span class="seen">{{ movie.title }}</span></li>
         <li v-else>Titre : {{ movie.title }}</li>
         <li v-if="!more">Description : {{ descriptionFormate(movie.description) }} <a @click="() => more = true">Voir plus...</a></li>
         <li v-else>Description : {{ movie.description }} <a @click="() => more = false">Voir moins.</a></li>
-        <button @click="movie.seen = true">Seen</button>
-        <button @click="movie.seen = false">Not seen</button>
+        <div class="btn">
+            <button @click="movie.seen = true">Seen</button>
+            <button @click="movie.seen = false">Not seen</button>
+        </div>
 
     </div>
 </template>
 
 <style>
 .seen {
-    color: green;
+    color: #00bd7e;
+}
+
+.img-div {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 3%;
 }
 
 .movie-card {
-    border : 1px solid red;
-    margin-top : 1em;
+    border: 1px solid #9f9f9f;
+    margin-top: 1em;
     margin-bottom: 1em;
+    padding: 5%;
+}
+
+.btn button {
+    margin : 2%;
 }
 
 img {

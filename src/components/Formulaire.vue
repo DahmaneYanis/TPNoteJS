@@ -54,8 +54,8 @@ function isDescriptionValid(description) {
     }
     descriptionValid.value = false;
     return false;
-
 }
+
 function isValid(title, description, link) {
     let titleValid = isTitleValid(title);
     let descriptionValid = isDescriptionValid(description);
@@ -68,7 +68,6 @@ function isValid(title, description, link) {
 
 <template>
     <div id="form">
-        <h1>Formulaire</h1>
         <div>
             <li v-if="titleTooShort">Erreur : Titre trop court, doit être supérieur à 5 caractères</li>
             <li v-if="titleTooLong">Erreur : Titre trop long, doit être inférieur à 30 caractères</li>

@@ -18,7 +18,15 @@ let homeLink = ""
 
 <style>
 #nav-bar {
-    border : 1px solid aqua;
+    display : flex;
+    border : 1px solid #00bd7e;
+    padding : 2%;
+    list-style : none;
+    width : auto;
+}
+
+#nav-bar li {
+    margin-right : 5%;
 }
 
 a:hover {

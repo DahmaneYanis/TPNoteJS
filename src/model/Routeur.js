@@ -36,7 +36,5 @@ export default class Routeur {
 
     getCurrentLink() {
         return this.currentLink.value
-    }
-
-    
+    }  
 }
