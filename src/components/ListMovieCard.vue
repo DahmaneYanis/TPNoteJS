@@ -11,6 +11,7 @@ const filter = ref("")
 
 <template>
     <div>
+        <label>Research</label>
         <input type="search" v-model="filter" @input="emit('filterUpdated', filter)" placeholder="Type your filter here"/>
         <MovieCard v-for="movie in list_movies" :movie="movie" />
     </div>

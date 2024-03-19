@@ -11,5 +11,6 @@ export default class Movie {
         this.title = title
         this.description = description
         this.link = link
+        this.seen = false
     }
 }

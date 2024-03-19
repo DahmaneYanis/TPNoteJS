@@ -3,13 +3,13 @@ import Movie from '../model/Movie'
 
 //TODO
 function descriptionFormate(description) {
-    console.log("description -> ", description)
     if (description.length > 20) {
-        return description.substring(1, 20) + "..."
+        return description.substring(0, 20) + "..."
     }
     return description
 }
 
+const emit = defineEmits([''])
 const props = defineProps({
     movie: Movie
 })
@@ -17,9 +17,29 @@ const props = defineProps({
 </script>
 
 <template>
-    <div style="border : 1px solid red;">
-      <li>Titre : {{movie.title}}</li>
-      <li>Description : {{movie.description}}</li>
-      <li>Lien : {{ movie.link }}</li>
+    <div class="movie-card">
+        <img :src="movie.link">
+        <li class="seen" v-if="movie.seen">Titre : {{ movie.title }}</li>
+        <li v-else>Titre : {{ movie.title }}</li>
+        <li>Description : {{ descriptionFormate(movie.description) }}</li>
+        <button @click="movie.seen = true">Seen</button>
+        <button @click="movie.seen = false">Not seen</button>
+
     </div>
 </template>
+
+<style>
+.seen {
+    color: green;
+}
+
+.movie-card {
+    border : 1px solid red;
+    margin-top : 1em;
+    margin-bottom: 1em;
+}
+
+img {
+    width: 200px;
+}
+</style>
