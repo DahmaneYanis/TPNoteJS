@@ -1,10 +1,19 @@
 <script setup>
 import Movie from '../model/Movie'
-import descriptionFormate from '../tools/descriptionFormate'
+
+//TODO
+function descriptionFormate(description) {
+    console.log("description -> ", description)
+    if (description.length > 20) {
+        return description.substring(1, 20) + "..."
+    }
+    return description
+}
 
 const props = defineProps({
     movie: Movie
 })
+
 </script>
 
 <template>

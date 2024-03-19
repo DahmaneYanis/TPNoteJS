@@ -1,46 +1,30 @@
 <script setup>
-import { ref } from 'vue';
 import ListMovieCard from './components/ListMovieCard.vue'
-import Movie from './model/Movie';
-import Formulaire from './components/Formulaire.vue';
-import NavBar from './components/NavBar.vue';
+import Formulaire from './components/Formulaire.vue'
+import NavBar from './components/NavBar.vue'
 
-import getStubMovies from './stub/stub.js'
-import updateLink from './tools/updateLink';
+import DataManager from './model/DataManager'
+import Routeur from './model/Routeur'
 
-
-function goTo(link) {
-    console.log(link)
-    location.href = "#" + link
-	currentLink.value = updateLink()
-}
-
-function parseJsonToMovies(data) {
-	let movies = []
-	let jsonObject = JSON.parse(data)
-	jsonObject.forEach(element => {
-		movies.push(new Movie(element.title, element.description, element.link))
-	})
-	return movies
-}
-let movies = ref(parseJsonToMovies(getStubMovies()))
-
-const currentLink = ref(updateLink())
-
+const dataManager = new DataManager()
+const routeur = new Routeur()
 
 function update(movie) {
-	movies.value.push(movie);
-	goTo("films")
+	dataManager.addMovie(movie)
+	routeur.goTo("films")
 }
 
+function updateList(filter) {
+	dataManager.filterMovies(filter)
+}
 </script>
 
 <template>
 	<main>
-		<NavBar @go="(link) => goTo(link)" />
-		<h1>{{ currentLink }}</h1>
-		<Formulaire v-if="currentLink == 'films/add'" @new="(movie) => update(movie)" />
-		<ListMovieCard v-else-if="currentLink == 'films'" :list_movies="movies" />
+		<NavBar @go="(link) => routeur.goTo(link)" />
+		<h1>{{ routeur.getCurrentLink() }}</h1>
+		<Formulaire v-if="routeur.getCurrentLink() == 'films/add'" @new="(movie) => update(movie)"/>
+		<ListMovieCard v-else-if="routeur.getCurrentLink() == 'films'" @filter-updated="(filter) => updateList(filter)" :list_movies="dataManager.getMovies()" />
 	</main>
 </template>
 

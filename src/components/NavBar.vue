@@ -1,7 +1,9 @@
 <script setup>
-import LinkService from '@/service/LinkService';
+import LinkService from '@/service/LinkService'
+
 const emit = defineEmits(["go"])
 const linkSer = new LinkService();
+
 let otherLinks = linkSer.getLinks()
 let homeLink = ""
 
@@ -17,5 +19,9 @@ let homeLink = ""
 <style>
 #nav-bar {
     border : 1px solid aqua;
+}
+
+a:hover {
+    cursor: pointer;
 }
 </style>

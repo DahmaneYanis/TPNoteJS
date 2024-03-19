@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from 'vue'
 import Movie from '../model/Movie'
-import MovieCard from './MovieCard.vue';
 const emit = defineEmits(['new'])
 
 // Ref err title
@@ -14,7 +13,6 @@ const titleValid = ref(true)
 const descriptionValid = ref(true)
 const descriptionTooShort = ref(false)
 const noDescription = ref(false)
-
 
 // Ref value Movie
 const title = ref("")
