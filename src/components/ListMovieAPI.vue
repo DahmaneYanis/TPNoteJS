@@ -1,8 +1,8 @@
 <script setup>
-import { ref } from 'vue';
-import MovieCard from './MovieCard.vue';
-import ApiService from '@/service/ApiService';
-import Movie from '@/model/Movie';
+import { ref } from 'vue'
+import MovieCard from './MovieCard.vue'
+import ApiService from '@/service/ApiService'
+import Movie from '@/model/Movie'
 const APIpoint = 'https://my-json-server.typicode.com/horizon-code-academy/fake-movies-api/movies'
 const data = await ApiService.get(APIpoint)
 let listMovieFetched = []
@@ -21,7 +21,7 @@ data.forEach(element => {
     }
     console.log(description)
     listMovieFetched.push(new Movie(title, description, link))
-});
+})
 
 const list_movies = ref(listMovieFetched)
 </script>

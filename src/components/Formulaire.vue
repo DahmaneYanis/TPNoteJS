@@ -21,44 +21,44 @@ const link = ref("")
 
 function isTitleValid(title) {
     if (title.length === 0) {
-        noTitle.value = true;
+        noTitle.value = true
     }
     if (title.length < 5) {
-        titleTooShort.value = true;
+        titleTooShort.value = true
     } else if (title.length > 30) {
-        titleTooLong.value = true;
+        titleTooLong.value = true
     } else {
-        titleTooShort.value = false;
-        noTitle.value = false;
-        titleTooLong.value = false;
-        titleValid.value = true;
-        return true;
+        titleTooShort.value = false
+        noTitle.value = false
+        titleTooLong.value = false
+        titleValid.value = true
+        return true
     }
 
-    titleValid.value = false;
-    return false;
+    titleValid.value = false
+    return false
 }
 
 function isDescriptionValid(description) {
     if (description.length === 0) {
-        noDescription.value = true;
+        noDescription.value = true
     }
     if (description.length < 30) {
-        descriptionTooShort.value = true;
+        descriptionTooShort.value = true
     } else {
-        descriptionValid.value = true;
-        descriptionTooShort.value = false;
-        noDescription.value = false;
+        descriptionValid.value = true
+        descriptionTooShort.value = false
+        noDescription.value = false
 
-        return true;
+        return true
     }
-    descriptionValid.value = false;
-    return false;
+    descriptionValid.value = false
+    return false
 }
 
 function isValid(title, description, link) {
-    let titleValid = isTitleValid(title);
-    let descriptionValid = isDescriptionValid(description);
+    let titleValid = isTitleValid(title)
+    let descriptionValid = isDescriptionValid(description)
 
     if (titleValid && descriptionValid) {
         emit('new', new Movie(title, description, link))

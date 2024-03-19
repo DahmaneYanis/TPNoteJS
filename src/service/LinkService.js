@@ -21,9 +21,7 @@ export default class LinkService {
             if (link.link === url) {
                 res = link
             }
-        });
+        })
         return res
     }
-
-
 }

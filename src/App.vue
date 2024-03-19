@@ -22,6 +22,7 @@ function updateList(filter) {
 
 <template>
 	<main>
+		Yanis DAHMANE-BOUNOUA - WEB3
 		<h1>TP Noté - {{ routeur.getCurrentLink() }}</h1>
 		<NavBar @go="(link) => routeur.goTo(link)" />
 		<div v-if="routeur.getCurrentLink() == 'films/add'">
@@ -54,7 +55,7 @@ header {
 	header {
 		display: flex;
 		place-items: center;
-		padding-right: calc(var(--section-gap) / 2);
+		padding-right: calc(var(--section-gap)/2);
 	}
 
 	.logo {

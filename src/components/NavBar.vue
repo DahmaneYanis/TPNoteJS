@@ -2,7 +2,7 @@
 import LinkService from '@/service/LinkService'
 
 const emit = defineEmits(["go"])
-const linkSer = new LinkService();
+const linkSer = new LinkService()
 
 let otherLinks = linkSer.getLinks()
 let homeLink = ""

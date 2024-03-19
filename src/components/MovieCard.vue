@@ -1,8 +1,7 @@
 <script setup>
 import Movie from '../model/Movie'
-import { ref } from 'vue';
+import { ref } from 'vue'
 
-//TODO
 function descriptionFormate(description) {
     if (description.length > 20) {
         return description.substring(0, 20) + "..."
@@ -16,7 +15,6 @@ const props = defineProps({
 })
 
 const more = ref(false)
-
 </script>
 
 <template>

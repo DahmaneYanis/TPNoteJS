@@ -1,6 +1,6 @@
 <script setup>
-import { ref } from 'vue';
-import MovieCard from './MovieCard.vue';
+import { ref } from 'vue'
+import MovieCard from './MovieCard.vue'
 const emit = defineEmits(['filterUpdated'])
 
 const props = defineProps({
